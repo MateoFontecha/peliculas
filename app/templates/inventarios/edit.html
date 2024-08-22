@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Editar inventario</title>
+</head>
+<body>
+    <h1>Editar Inventarios</h1>
+    <form action="{{ url_for('inventario.edit', idInventario=inventario.idInventario) }}" method="post">
+
+        <label for="estado">estado:</label>
+        <input type="text" id="estado" name="estado" value="{{ inventario.estado}}" required>
+
+        <label for="fecha_adquisicion">fecha_adquisicion:</label>
+        <input type="text" id="fecha_adquisicion" name="fecha_adquisicion" value="{{ inventario.fecha_adquisicion }}" required>
+
+        <label for="id_pelicula">id_pelicula:</label>
+        <input type="text" id="id_pelicula" name="id_pelicula" value="{{ inventario.id_pelicula }}" required>
+
+        <button type="submit">Actualizar Inventarios</button>
+    </form>
+</body>  
+
+</html>

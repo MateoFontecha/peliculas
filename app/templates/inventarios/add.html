@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Agregar inventario</title>
+</head>
+<body>
+    <h1>Agregar Inventarios</h1>
+    <form action="{{ url_for('inventario.add') }}" method="post">
+
+        <label for="estado">estado:</label>
+        <input type="text" id="estado" name="estado" required>
+
+        <label for="fecha_adquisicion">fecha_adquisicion:</label>
+        <input type="text" id="fecha_adquisicion" name="fecha_adquisicion" required>
+        
+        <label for="id_pelicula">IdPelicula</label>
+        <select id="id_pelicula" name="id_pelicula">
+            
+            {% for pelicula in pel %}
+                <option value="{{ pelicula.idPelicula }}">{{ pelicula.titulo }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">Agregar inventario</button>
+    </form>
+</body>
+</html>

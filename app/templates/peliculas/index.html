@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Pelicula</title>
+</head>
+<body>
+    <h1>Lista de pelicula</h1>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Titulo</th>
+            <th>Año</th>
+            <th>Duracion</th>
+            <th>IDgenero</th>
+            <th>IDdirector</th>
+            <th>IDempleado</th>
+            <th>Acciones</th>
+        </tr>
+        {% for pelicula in data %}
+            <tr>
+                <td>{{ pelicula.idPelicula }}</td>
+                <td>{{ pelicula.titulo }}</td>
+                <td>{{ pelicula.año }}</td>
+                <td>{{ pelicula.duracion }}</td>
+                <td>{{ pelicula.id_genero }}</td>
+                <td>{{ pelicula.id_director }}</td>
+                <td>{{ pelicula.id_empleado }}</td>
+
+             
+                <td>
+                    <a href="{{ url_for('pelicula.edit', idPelicula=pelicula.idPelicula) }}">Editar</a>
+                    <a href="{{ url_for('pelicula.delete',idPelicula =pelicula.idPelicula) }}">Eliminar</a>
+                    
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+    <a href="{{ url_for('pelicula.add') }}">Agregar Pelicula</a>
+    <br>
+    <a href="{{ url_for('renta.index') }}">Ir a Renta</a>
+</body>
+</html>

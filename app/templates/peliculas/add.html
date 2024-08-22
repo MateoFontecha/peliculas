@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Agregar Peliculas</title>
+</head>
+<body>
+    <h1>Agregar Peliculas</h1>
+    <form action="{{ url_for('pelicula.add') }}" method="post">
+        <label for="titulo">titulo:</label>
+        <input type="text" id="titulo" name="titulo" required>
+        <label for="año">año:</label>
+        <input type="text" id="año" name="año" required>
+        <label for="duracion">duracion:</label>
+        <input type="text" id="duracion" name="duracion" required>
+       
+        <label for="id_genero">IdGenero:</label>
+        <select id="id_genero" name="id_genero">
+            
+            {% for genero in gen %}
+                <option value="{{ genero.idGenero }}">{{ genero.nombre }}</option>
+            {% endfor %}
+        </select>
+
+        <label for="id_director">IdDirector:</label>
+        <select id="id_director" name="id_director">
+            
+            {% for director in direc %}
+                <option value="{{ director.idDirector }}">{{ director.nombre }}</option>
+            {% endfor %}
+        </select>
+
+        <label for="id_empleado">IdEmpleado:</label>
+        <select id="id_empleado" name="id_empleado">
+            
+            {% for empleado in em %}
+                <option value="{{ empleado.idEmpleado }}">{{ empleado.nombre }}</option>
+            {% endfor %}
+        </select>
+
+        
+        
+
+        <button type="submit">Agregar Pelicula</button>
+    </form>
+</body>

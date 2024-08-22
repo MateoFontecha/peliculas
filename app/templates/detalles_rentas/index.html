@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>DETALLE RENTA</title>
+</head>
+<body>
+    <h1>Lista de Detalle Renta</h1>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>FechaDevolucion</th>
+            <th>IDRenta</th>
+            <th>IDInventario</th>
+            <th>Acciones</th>
+        </tr>
+        {% for detalle_renta in data %}
+            <tr>
+                <td>{{ detalle_renta.idDetalleRenta }}</td>
+                <td>{{ detalle_renta.fecha_devolucion }}</td>
+                <td>{{ detalle_renta.renta_id }}</td>
+                <td>{{ detalle_renta.inventario_id }}</td>
+             
+                <td>
+                    <a href="{{ url_for('detalle_renta.edit', idDetalleRenta=detalle_renta.idDetalle_Renta) }}">Editar</a>
+                    <a href="{{ url_for('detalle_renta.delete', idDetalle_Renta=detalle_renta.idDetalle_Renta) }}">Eliminar</a>
+                    
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+    <a href="{{ url_for('detalle_renta.add') }}">Agregar Detalle Renta</a>
+    <br>
+    <a href="{{ url_for('renta.index') }}">Ir a Renta</a>
+</body>
+</html>

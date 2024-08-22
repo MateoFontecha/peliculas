@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Editar Peliculas</title>
+</head>
+<body>
+    <h1>Editar Peliculas</h1>
+    <form action="{{ url_for('pelicula.edit', idPelicula=pelicula.idPelicula) }}" method="post">
+        <label for="titulo">titulo:</label>
+        <input type="text" id="titulo" name="titulo" value="{{ pelicula.titulo }}" required>
+        <label for="año">año:</label>
+        <input type="text" id="año" name="año" value="{{ pelicula.año}}" required>
+        <label for="duracion">duracion:</label>
+        <input type="text" id="duracion" name="duracion" value="{{ pelicula.duracion}}" required>
+        <label for="id_genero">id_genero:</label>
+        <input type="text" id="id_genero" name="id_genero" value="{{ pelicula.id_genero}}" required>
+        <label for="id_director">id_director:</label>
+        <input type="text" id="id_director" name="id_director" value="{{ pelicula.id_director}}" required>
+        <label for="id_empleado">id_empleado:</label>
+        <input type="text" id="id_empleado" name="id_empleado" value="{{ pelicula.id_empleado}}" required> 
+              
+        <button type="submit">Actualizar Pelicula</button>
+    </form>
+</body>
+</html>

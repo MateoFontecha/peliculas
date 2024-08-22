@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Inventarios</title>
+</head>
+<body>
+    <h1>Lista de Inventarios</h1>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Estado</th>
+            <th>FechaAdquisicion</th>
+            <th>IDPelicula</th>
+            <th>Acciones</th>
+        </tr>
+        {% for inventario in data %}
+            <tr>
+                <td>{{ inventario.idInventario }}</td>
+                <td>{{ inventario.estado }}</td>
+                <td>{{ inventario.fecha_adquisicion }}</td>
+                <td>{{ inventario.id_pelicula }}</td>
+                <td>
+                    <a href="{{ url_for('inventario.edit', idInventario=inventario.idInventario) }}">Editar</a>
+                    <a href="{{ url_for('inventario.delete', idInventario=inventario.idInventario) }}">Eliminar</a>                 
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+    <a href="{{ url_for('inventario.add') }}">Agregar Inventario</a>
+    <br>
+    <a href="{{ url_for('renta.index') }}">Ir a Renta</a> 
+</body>
+</html>

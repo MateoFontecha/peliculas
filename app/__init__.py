@@ -10,9 +10,14 @@ def create_app():
     db.init_app(app)
 
 
-    from app.routes import clientes_routes
-    app.register_blueprint(clientes_routes)
-    app.register_blueprint()
-    app.register_blueprint()
+    from app.routes import genero_routes, cliente_routes, renta_routes, director_routes, empleado_routes, detalle_renta_routes,  inventario_routes, pelicula_routes
+    app.register_blueprint(genero_routes.bp)
+    app.register_blueprint(cliente_routes.bp)
+    app.register_blueprint(director_routes.bp)
+    app.register_blueprint(empleado_routes.bp)
+    app.register_blueprint(pelicula_routes.bp)
+    app.register_blueprint(inventario_routes.bp)
+    app.register_blueprint(renta_routes.bp)
+    app.register_blueprint(detalle_renta_routes.bp)
 
     return app

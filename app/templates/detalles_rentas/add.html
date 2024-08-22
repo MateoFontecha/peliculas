@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Agregar Detalle Renta</title>
+</head>
+<body>
+    <h1>Agregar Detalle Renta</h1>
+    <form action="{{ url_for('detalle_renta.add') }}" method="post">
+        <label for="fecha_devolucion">fecha_devolucion:</label>
+        <input type="text" id="fecha_devolucion" name="fecha_devolucion" required>
+        <label for="renta_id">renta_id:</label>
+        <select id="renta_id" name="renta_id">
+            
+            {% for renta in ren %}
+                <option value="{{ renta.idRenta }}">{{ renta.cliente_id }}</option>
+            {% endfor %}
+        </select>
+
+        <label for="inventario_id">inventario_id:</label>
+        <select id="inventario_id" name="inventario_id">
+            
+            {% for inventario in inven %}
+                <option value="{{ inventario.idInventario }}">{{ inventario.estado }}</option>
+            {% endfor %}
+        </select>
+
+        
+        
+
+        <button type="submit">Agregar Detalle Renta</button>
+    </form>
+</body>
+</html>

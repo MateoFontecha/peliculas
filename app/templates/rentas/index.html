@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Rentas</title>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Menú</h2>
+        <a href="{{ url_for('renta.add') }}" class="sidebar-link">Agregar Renta</a>
+        <a href="{{ url_for('cliente.index') }}" class="sidebar-link">Ir a Cliente</a>
+        <a href="{{ url_for('empleado.index') }}" class="sidebar-link">Ir a Empleados</a>
+        <a href="{{ url_for('detalle_renta.index') }}" class="sidebar-link">Ir a Detalle Renta</a>
+        <a href="{{ url_for('inventario.index') }}" class="sidebar-link">Ir a Inventario</a>
+        <a href="{{ url_for('pelicula.index') }}" class="sidebar-link">Ir a Película</a>
+        <a href="{{ url_for('genero.index') }}" class="sidebar-link">Ir a Género</a>
+        <a href="{{ url_for('director.index') }}" class="sidebar-link">Ir a Director</a>
+    </div>
+
+    <div class="main-content">
+        <h1>Lista de Renta</h1>
+        <table>
+            <tr>
+                <th>id_rentas</th>
+                <th>fecha_renta</th>
+                <th>fecha_devolucion</th>
+                <th>total</th>
+                <th>cliente_id</th>
+                <th>empleado_id</th>
+                <th>acciones</th>
+            </tr>
+            {% for renta in data %}
+                <tr>
+                    <td>{{ renta.idRenta }}</td>
+                    <td>{{ renta.fecha_renta }}</td>
+                    <td>{{ renta.fecha_devolucion }}</td>
+                    <td>{{ renta.total }}</td>
+                    <td>{{ renta.cliente_id }}</td>
+                    <td>{{ renta.empleado_id }}</td>
+                    <td>
+                        <a href="{{ url_for('renta.edit', idRenta=renta.idRenta) }}" class="action-link">Editar</a>
+                        <a href="{{ url_for('renta.delete', idRenta=renta.idRenta) }}" class="action-link">Eliminar</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>

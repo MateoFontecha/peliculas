@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Editar Empleados</title>
+</head>
+<body>
+    <h1>Editar Empleados</h1>
+    <form action="{{ url_for('empleado.edit', idEmpleado=empleado.idEmpleado) }}" method="post">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" value="{{ empleado.nombre }}" required>
+        <label for="apellido">Apellido:</label>
+        <input type="text" id="apellido" name="apellido" value="{{ empleado.apellido }}" required>
+        <label for="telefono">Telefono:</label>
+        <input type="text" id="telefono" name="telefono" value="{{ empleado. telefono}}" required>
+        <label for="correo">Correo:</label>
+        <input type="text" id="correo" name="correo" value="{{ empleado.correo }}" required>
+        <button type="submit">Actualizar Empleados</button>
+    </form>
+</body>
+</html>

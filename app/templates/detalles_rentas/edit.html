@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Editar Detalle Renta</title>
+</head>
+<body>
+    <h1>Editar Detalle Renta</h1>
+    <form action="{{ url_for('detalle_renta.edit', idDetallerenta=detalle_renta.idDetalleRenta) }}" method="post">
+        <label for="fecha_devolucion">fecha_devolucion:</label>
+        <input type="text" id="fecha_devolucion" name="fecha_devolucion" value="{{ detalle_renta.fecha_devolucion }}" required>
+        <label for="renta_id">renta_id:</label>
+        <input type="text" id="renta_id" name="renta_id" value="{{ detalle_renta.renta_id }}" required>
+        <label for="inventario_id">inventario_id:</label>
+        <input type="text" id="inventario_id" name="inventario_id" value="{{ detalle_renta.inventario_id}}" required>
+       
+        <button type="submit">Actualizar Detalle Renta</button>
+    </form>
+</body>
+</html>
