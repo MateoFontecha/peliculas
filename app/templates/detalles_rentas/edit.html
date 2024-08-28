@@ -9,7 +9,7 @@
 </head>
 <body>
     <h1>Editar Detalle Renta</h1>
-    <form action="{{ url_for('detalle_renta.edit', idDetallerenta=detalle_renta.idDetalleRenta) }}" method="post">
+    <form action="{{ url_for('detalle_renta.edit', idDetalleRenta=detalle_renta.idDetalleRenta) }}" method="post">
         <label for="fecha_devolucion">fecha_devolucion:</label>
         <input type="text" id="fecha_devolucion" name="fecha_devolucion" value="{{ detalle_renta.fecha_devolucion }}" required>
         <label for="renta_id">renta_id:</label>

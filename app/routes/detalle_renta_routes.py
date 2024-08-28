@@ -15,11 +15,11 @@ def index():
 def add():
     if request.method == 'POST':
         fecha_devolucion = request.form['fecha_devolucion']
-        id_renta = request.form['id_renta']
-        id_inventario = request.form['id_inventario']
+        renta_id = request.form['renta_id']
+        inventario_id = request.form['inventario_id']
         
         
-        new_detalle_renta = DetallesRentas(fecha_devolucion=fecha_devolucion, renta_id=id_renta, inventario_id=id_inventario)
+        new_detalle_renta = DetallesRentas(fecha_devolucion=fecha_devolucion, renta_id=renta_id, inventario_id=inventario_id)
         db.session.add(new_detalle_renta)
         db.session.commit()
         
@@ -29,14 +29,14 @@ def add():
 
     return render_template('detalles_rentas/add.html',ren=ren,inven=inven)
 
-@bp.route('/detalle_renta/edit/<int:idDetalle_Renta>', methods=['GET', 'POST'])
-def edit(idDetalle_Renta):
-    detalle_renta = DetallesRentas.query.get_or_404(idDetalle_Renta)
+@bp.route('/detalle_renta/edit/<int:idDetalleRenta>', methods=['GET', 'POST'])
+def edit(idDetalleRenta):
+    detalle_renta = DetallesRentas.query.get_or_404(idDetalleRenta)
 
     if request.method == 'POST':
         detalle_renta.fecha_devolucion = request.form['fecha_devolucion']
-        detalle_renta.id_renta = request.form['id_renta']
-        detalle_renta.id_inventario = request.form['id_inventario']
+        detalle_renta.renta_id = request.form['renta_id']
+        detalle_renta.inventario_id = request.form['inventario_id']
         
         db.session.commit()
         return redirect(url_for('detalle_renta.index'))

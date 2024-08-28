@@ -9,6 +9,7 @@
 </head>
 <body>
     <h1>Agregar Clientes</h1>
+<div class="add">
     <form action="{{ url_for('cliente.add') }}" method="post">
         <label for="nombre">Nombre:</label>
         <input type="text" id="nombre" name="nombre" required>
@@ -21,5 +22,6 @@
 
         <button type="submit">Agregar cliente</button>
     </form>
+</div>
 </body>
 </html>

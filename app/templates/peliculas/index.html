@@ -8,39 +8,53 @@
     <title>Pelicula</title>
 </head>
 <body>
-    <h1>Lista de pelicula</h1>
-    <table>
-        <tr>
-            <th>ID</th>
-            <th>Titulo</th>
-            <th>Año</th>
-            <th>Duracion</th>
-            <th>IDgenero</th>
-            <th>IDdirector</th>
-            <th>IDempleado</th>
-            <th>Acciones</th>
-        </tr>
-        {% for pelicula in data %}
+    <div class="sidebar">
+        <h2>Menú</h2>
+        <a href="{{ url_for('renta.index') }}" class="sidebar-link">Renta</a>
+        <a href="{{ url_for('cliente.index') }}" class="sidebar-link">Cliente</a>
+        <a href="{{ url_for('empleado.index') }}" class="sidebar-link">Empleados</a>
+        <a href="{{ url_for('detalle_renta.index') }}" class="sidebar-link">Detalle Renta</a>
+        <a href="{{ url_for('inventario.index') }}" class="sidebar-link">Inventario</a>
+        <a href="{{ url_for('pelicula.index') }}" class="sidebar-link">Película</a>
+        <a href="{{ url_for('genero.index') }}" class="sidebar-link">Género</a>
+        <a href="{{ url_for('director.index') }}" class="sidebar-link">Director</a>
+    </div>
+
+    <div class="main-content">
+        <h1>Lista de pelicula</h1>
+        <table>
             <tr>
-                <td>{{ pelicula.idPelicula }}</td>
-                <td>{{ pelicula.titulo }}</td>
-                <td>{{ pelicula.año }}</td>
-                <td>{{ pelicula.duracion }}</td>
-                <td>{{ pelicula.id_genero }}</td>
-                <td>{{ pelicula.id_director }}</td>
-                <td>{{ pelicula.id_empleado }}</td>
+                <th>ID</th>
+                <th>Titulo</th>
+                <th>Año</th>
+                <th>Duracion</th>
+                <th>IDgenero</th>
+                <th>IDdirector</th>
+                <th>IDempleado</th>
+                <th>Acciones</th>
+            </tr>
+            {% for pelicula in data %}
+                <tr>
+                    <td>{{ pelicula.idPelicula }}</td>
+                    <td>{{ pelicula.titulo }}</td>
+                    <td>{{ pelicula.año }}</td>
+                    <td>{{ pelicula.duracion }}</td>
+                    <td>{{ pelicula.id_genero }}</td>
+                    <td>{{ pelicula.id_director }}</td>
+                    <td>{{ pelicula.id_empleado }}</td>
 
              
-                <td>
-                    <a href="{{ url_for('pelicula.edit', idPelicula=pelicula.idPelicula) }}">Editar</a>
-                    <a href="{{ url_for('pelicula.delete',idPelicula =pelicula.idPelicula) }}">Eliminar</a>
+                    <td>
+                       <a href="{{ url_for('pelicula.edit', idPelicula=pelicula.idPelicula) }}">Editar</a>
+                       <a href="{{ url_for('pelicula.delete',idPelicula =pelicula.idPelicula) }}">Eliminar</a>
                     
-                </td>
-            </tr>
-        {% endfor %}
-    </table>
-    <a href="{{ url_for('pelicula.add') }}">Agregar Pelicula</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+        <a href="{{ url_for('pelicula.add') }}" class="btn-agregar">Agregar Pelicula</a>
+    </div>
     <br>
-    <a href="{{ url_for('renta.index') }}">Ir a Renta</a>
+   
 </body>
 </html>

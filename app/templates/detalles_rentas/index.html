@@ -8,32 +8,48 @@
     <title>DETALLE RENTA</title>
 </head>
 <body>
-    <h1>Lista de Detalle Renta</h1>
-    <table>
-        <tr>
-            <th>ID</th>
-            <th>FechaDevolucion</th>
-            <th>IDRenta</th>
-            <th>IDInventario</th>
-            <th>Acciones</th>
-        </tr>
-        {% for detalle_renta in data %}
+    <div class="sidebar">
+        <h2>Menú</h2>
+        <a href="{{ url_for('renta.index') }}" class="sidebar-link">Renta</a>
+        <a href="{{ url_for('cliente.index') }}" class="sidebar-link">Cliente</a>
+        <a href="{{ url_for('empleado.index') }}" class="sidebar-link">Empleados</a>
+        <a href="{{ url_for('detalle_renta.index') }}" class="sidebar-link">Detalle Renta</a>
+        <a href="{{ url_for('inventario.index') }}" class="sidebar-link">Inventario</a>
+        <a href="{{ url_for('pelicula.index') }}" class="sidebar-link">Película</a>
+        <a href="{{ url_for('genero.index') }}" class="sidebar-link">Género</a>
+        <a href="{{ url_for('director.index') }}" class="sidebar-link">Director</a>
+    </div>
+
+    <div class="main-content">
+
+        <h1>Lista de Detalle Renta</h1>
+        <table>
             <tr>
-                <td>{{ detalle_renta.idDetalleRenta }}</td>
-                <td>{{ detalle_renta.fecha_devolucion }}</td>
-                <td>{{ detalle_renta.renta_id }}</td>
-                <td>{{ detalle_renta.inventario_id }}</td>
-             
-                <td>
-                    <a href="{{ url_for('detalle_renta.edit', idDetalleRenta=detalle_renta.idDetalle_Renta) }}">Editar</a>
-                    <a href="{{ url_for('detalle_renta.delete', idDetalle_Renta=detalle_renta.idDetalle_Renta) }}">Eliminar</a>
-                    
-                </td>
+               <th>ID</th>
+               <th>FechaDevolucion</th>
+               <th>IDRenta</th>
+               <th>IDInventario</th>
+               <th>Acciones</th>
             </tr>
-        {% endfor %}
-    </table>
-    <a href="{{ url_for('detalle_renta.add') }}">Agregar Detalle Renta</a>
+            {% for detalle_renta in data %}
+                <tr>
+                   <td>{{ detalle_renta.idDetalleRenta }}</td>
+                   <td>{{ detalle_renta.fecha_devolucion }}</td>
+                   <td>{{ detalle_renta.renta_id }}</td>
+                   <td>{{ detalle_renta.inventario_id }}</td>
+             
+                   <td>
+                      <a href="{{ url_for('detalle_renta.edit', idDetalleRenta=detalle_renta.idDetalleRenta) }}">Editar</a>
+                      <a href="{{ url_for('detalle_renta.delete', idDetalleRenta=detalle_renta.idDetalleRenta) }}">Eliminar</a>
+                    
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+        <a href="{{ url_for('detalle_renta.add') }}" class="btn-agregar">Agregar Detalle Renta</a>
+    </div>
+    
     <br>
-    <a href="{{ url_for('renta.index') }}">Ir a Renta</a>
+    
 </body>
 </html>

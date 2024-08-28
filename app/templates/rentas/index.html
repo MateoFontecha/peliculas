@@ -10,27 +10,27 @@
 <body>
     <div class="sidebar">
         <h2>Menú</h2>
-        <a href="{{ url_for('renta.add') }}" class="sidebar-link">Agregar Renta</a>
-        <a href="{{ url_for('cliente.index') }}" class="sidebar-link">Ir a Cliente</a>
-        <a href="{{ url_for('empleado.index') }}" class="sidebar-link">Ir a Empleados</a>
-        <a href="{{ url_for('detalle_renta.index') }}" class="sidebar-link">Ir a Detalle Renta</a>
-        <a href="{{ url_for('inventario.index') }}" class="sidebar-link">Ir a Inventario</a>
-        <a href="{{ url_for('pelicula.index') }}" class="sidebar-link">Ir a Película</a>
-        <a href="{{ url_for('genero.index') }}" class="sidebar-link">Ir a Género</a>
-        <a href="{{ url_for('director.index') }}" class="sidebar-link">Ir a Director</a>
+        <a href="{{ url_for('renta.index') }}" class="sidebar-link">Renta</a>
+        <a href="{{ url_for('cliente.index') }}" class="sidebar-link">Cliente</a>
+        <a href="{{ url_for('empleado.index') }}" class="sidebar-link">Empleados</a>
+        <a href="{{ url_for('detalle_renta.index') }}" class="sidebar-link">Detalle Renta</a>
+        <a href="{{ url_for('inventario.index') }}" class="sidebar-link">Inventario</a>
+        <a href="{{ url_for('pelicula.index') }}" class="sidebar-link">Película</a>
+        <a href="{{ url_for('genero.index') }}" class="sidebar-link">Género</a>
+        <a href="{{ url_for('director.index') }}" class="sidebar-link">Director</a>
     </div>
 
     <div class="main-content">
         <h1>Lista de Renta</h1>
         <table>
             <tr>
-                <th>id_rentas</th>
-                <th>fecha_renta</th>
-                <th>fecha_devolucion</th>
-                <th>total</th>
-                <th>cliente_id</th>
-                <th>empleado_id</th>
-                <th>acciones</th>
+                <th>IDrentas</th>
+                <th>FechaRenta</th>
+                <th>FechaDevolucion</th>
+                <th>Total</th>
+                <th>ClienteID</th>
+                <th>EmpleadoID</th>
+                <th>Acciones</th>
             </tr>
             {% for renta in data %}
                 <tr>
@@ -47,6 +47,8 @@
                 </tr>
             {% endfor %}
         </table>
+        <a href="{{ url_for('renta.add') }}" class="btn-agregar"> Agregar renta</a>
     </div>
+    
 </body>
 </html>
